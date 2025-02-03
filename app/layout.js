@@ -1,12 +1,13 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
+import { ClerkProvider, ClerkLoaded, ClerkLoading } from '@clerk/nextjs'
+import { Toaster } from "@/components/ui/toaster"
+const geistSans = Outfit({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
+const geistMono = Outfit({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
@@ -18,12 +19,39 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <ClerkLoading>
+  <div className="  my-[40%] mx-[30%] md:my-[20%] md:mx-[40%] ">
+<div className="card ">
+  <div className="loader">
+    <p>Loading</p>
+    <div className="words">
+      <span className="word">Spaces</span>
+      <span className="word">Work</span>
+      <span className="word">Notes</span>
+      <span className="word">Data</span>
+      
+      {/* <span className="word">buttons</span> */}
+    </div>
+    
+  </div>
+  
+</div>
+
+</div>
+<span className="absolute bottom-2 flex justify-center text-slate-800 text-md p-2  font-semibold"> Step into Flowly Collaborate, create, and connect seamlessly."
+    Feel free to adjust it if you need a different vibe!"</span>
+        </ClerkLoading>
+        <ClerkLoaded>
+        <Toaster />  
         {children}
+        </ClerkLoaded>
       </body>
     </html>
+    </ClerkProvider>
   );
 }

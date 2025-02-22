@@ -21,7 +21,7 @@ const {user}=useUser();
   //   }
   // },[orgId])
   useEffect(()=>{
-    console.log("hi everyone")
+    // console.log("hi everyone")
     if(userId&&user)
     {
       saveuserdata();
@@ -32,7 +32,7 @@ const {user}=useUser();
      router.replace('/');
   }
   const saveuserdata=async ()=>{
-    console.log("Hello")
+    // console.log("Hello")
     if(user)
     {
     const data={

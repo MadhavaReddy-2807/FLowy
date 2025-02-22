@@ -101,7 +101,7 @@ const Documentinfo = () => {
       };
     });
 
-    console.log("Updated Workspace:", workspace);
+    // console.log("Updated Workspace:", workspace);
   };
 
   useEffect(() => {

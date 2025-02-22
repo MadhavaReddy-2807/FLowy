@@ -24,7 +24,7 @@ const CreateWorkspace = () => {
   const docid=uuidv4();
   const oncreateworkspace=async()=>{
     const arr=[{id:docid,name:""}];
-    console.log(orgId)
+    // console.log(orgId)
     setLoading(true)
     const workspace={
       workspacename:workspacename,
@@ -36,11 +36,11 @@ const CreateWorkspace = () => {
       orgId:orgId?orgId:user?.primaryEmailAddress?.emailAddress
     
   }
-  console.log(process.env.NEXT_PUBLIC_BACKEND_URL+"workspaces")
+  // console.log(process.env.NEXT_PUBLIC_BACKEND_URL+"workspaces")
   const res =await fetch(process.env.NEXT_PUBLIC_BACKEND_URL+"workspaces",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(workspace)})
   if(res.ok)
   {
-    console.log('Success');
+    // console.log('Success');
     setLoading(false)
   }
   setworkspacename("");

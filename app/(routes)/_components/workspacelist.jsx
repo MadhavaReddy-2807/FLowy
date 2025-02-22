@@ -23,11 +23,11 @@ const Workspacelist = () => {
   }
   const getworkspacelist = async () => {
     if (!user) return;
-    console.log("Org ID:", orgId);
-    console.log("User ID:", userId);
+    // console.log("Org ID:", orgId);
+    // console.log("User ID:", userId);
     
     const queryParam = orgId ? `orgId=${orgId}` : `userId=${userId}`;
-    console.log("Query:", queryParam);
+    // console.log("Query:", queryParam);
 
     try {
       const response = await fetch(

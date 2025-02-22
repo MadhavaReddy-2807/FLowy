@@ -38,7 +38,7 @@ const Texteditor = () => {
   const savedocument=()=>
   {
     ref.current.save().then((output)=>{
-      console.log(output)
+      // console.log(output)
        changevalue(output);
     })
   }
@@ -57,7 +57,7 @@ const Texteditor = () => {
 }, [workspaceid, workspace]);
 const updateworkspace=async()=>{
   // setLoading(true);
-  console.log(workspace)
+  // console.log(workspace)
   if(workspace&&workspaceid)
   {
   const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL+"workspaces", {
@@ -154,7 +154,7 @@ const updateworkspace=async()=>{
 
     const updateddoc={...currentdoc,output:data};
       setcurrentdoc(updateddoc)
-      console.log(updateddoc)
+      // console.log(updateddoc)
       setWorkspace((prev)=>{
         if(!prev||!prev.docs)
         {
@@ -163,11 +163,11 @@ const updateworkspace=async()=>{
         const updateddocs=prev.docs?.map((doc)=>
           doc?.id===docid?{...doc,output:data}:doc
         )
-        console.log(updateddocs)
+        // console.log(updateddocs)
         return {...prev,docs:updateddocs};
       }
     )
-      console.log(updateddoc);
+      // console.log(updateddoc);
       console.log("Updated Workspace:", workspace);
   
      
@@ -179,7 +179,7 @@ const updateworkspace=async()=>{
           const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}`+`workspaces?workspaceid=${workspaceid}`);
           const data = await res.json();
           setDocs(data);
-          console.log(data);
+          // console.log(data);
           if(data)
           {
             setWorkspace(data);
@@ -189,7 +189,7 @@ const updateworkspace=async()=>{
           console.error("Error fetching workspace data:", error);
         }
       };
-      console.log(workspace);
+      // console.log(workspace);
       if (workspaceid) {
         fetchWorkspaceData();
       }

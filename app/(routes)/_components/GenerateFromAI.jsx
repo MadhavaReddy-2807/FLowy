@@ -24,14 +24,14 @@ const GenerateFromAI = ({ setGeneratedOutput }) => {
       const result = await chatSession.sendMessage(prompt);
       let responseText = await result.response.text(); // Await AI response
 
-      console.log("Raw AI Response:", responseText);
+      // console.log("Raw AI Response:", responseText);
 
       // **Fix: Remove Markdown Code Block Formatting**
       responseText = responseText.replace(/```json|```/g, "").trim();
 
       try {
         const output = JSON.parse(responseText); // Parse JSON output
-        console.log("Parsed AI Output:", output);
+        // console.log("Parsed AI Output:", output);
         setGeneratedOutput(output);
       } catch (jsonError) {
         console.error("Error parsing AI response as JSON:", jsonError);

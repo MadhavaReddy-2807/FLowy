@@ -51,13 +51,13 @@ const Documentinfo = () => {
   }, [workspace]);
 
   useEffect(() => {
-    if (workspace?.coverimage !== coverimage) {
+    if (coverimage!='/coverimage.jpg'&&workspace?.coverimage !== coverimage) {
       setWorkspace((prev) => ({ ...prev, coverimage }));
     }
   }, [coverimage]);
 
   useEffect(() => {
-    if (workspace?.emoji !== emoji) {
+    if (emoji&&workspace?.emoji !== emoji) {
       setWorkspace((prev) => ({ ...prev, emoji }));
     }
   }, [emoji]);

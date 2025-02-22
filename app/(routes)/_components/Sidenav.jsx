@@ -32,7 +32,7 @@ const Sidenav = ({ params }) => {
         );
         const data = await res.json();
         setDocs(data);
-        // console.log(data);
+        console.log(data);
         if (data) {
           setWorkspace(data);
           setDocs(data?.docs);
@@ -48,15 +48,15 @@ const Sidenav = ({ params }) => {
   }, [workspaceid]);
 
   useEffect(() => {
-    // console.log(workspace);
+    console.log(workspace);
     if (workspace) {
-      // console.log(workspace);
+      console.log(workspace);
       updateworkspace();
     }
   }, [workspace]);
 
   const updatedoc = async () => {
-    // console.log(docs);
+    console.log(docs);
     if (docs.length >= 5) {
       toast({
         title: "Upgrade plan",
@@ -66,7 +66,7 @@ const Sidenav = ({ params }) => {
     }
     const newid = uuidv4();
     setDoc(newid);
-    const newDoc = { id: newid, name: "Untitled Document" };
+    const newDoc = { id: newid, name: "" };
     const updatedDocs = [...docs, newDoc];
     setDocs(updatedDocs);
     setWorkspace((prev) => ({ ...prev, docs: updatedDocs }));

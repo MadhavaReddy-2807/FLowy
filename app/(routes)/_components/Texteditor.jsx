@@ -165,7 +165,7 @@ const Texteditor = () => {
         className="flex justify-start ml-6 w-full relative bottom-[400px] p-10"
       ></div>
 
-      <div className="fixed bottom-20 md:ml-80 left-0 z-10">
+      <div className="fixed right-16  bottom-36 left-5 md:ml-80 md:right-4 md:bottom-20  z-10">
         <GenerateFromAI
           setGeneratedOutput={(output) => {
             if (editorInstance.current) {

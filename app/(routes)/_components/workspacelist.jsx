@@ -18,6 +18,9 @@ const Workspacelist = () => {
     setWorkspacelist([]);
   }, [orgId]);
 
+  const goback=()=>{
+    router.push('/')
+  }
   const getworkspacelist = async () => {
     if (!user) return;
     console.log("Org ID:", orgId);

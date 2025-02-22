@@ -161,9 +161,9 @@ const Sidenav = ({ params }) => {
 
         {/* Progress Bar */}
         <div className="fixed bottom-5 w-full left-0 p-5">
-          <Progress value={(docs.length / 5) * 100} />
+          <Progress value={(docs?.length / 5) * 100} />
           <h2 className="text-lg mt-2 flex justify-center">
-            <b>{docs.length}</b> &nbsp;Out of 5 files used
+            <b>{docs?.length}</b> &nbsp;Out of 5 files used
           </h2>
           <span className="text-sm">Upgrade your plan for unlimited access</span>
         </div>

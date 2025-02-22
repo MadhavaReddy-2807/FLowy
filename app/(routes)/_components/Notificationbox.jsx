@@ -45,7 +45,7 @@ const Notificationbox = ({ children, params }) => {
             </span>
           </div>
         </PopoverTrigger>
-        <PopoverContent className="w-[50%] ml-2">
+        <PopoverContent className="w-[30%] ml-2 md:w-[50%]">
           <InboxNotificationList>
             {inboxNotifications.map((inboxNotification) => (
               <InboxNotification

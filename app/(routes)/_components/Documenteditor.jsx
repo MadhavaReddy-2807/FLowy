@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Documentheader from './Documentheader'
 import Documentinfo from './Documentinfo'
-const Documenteditor = (params) => {
+import { Button } from '@/components/ui/button'
+import { MessageCircle, X } from 'lucide-react'
+import Commentbox from './Commentbox'
+const Documenteditor = ({params}) => {
+  const changecomment=()=>{
+    setopencomment((prev)=>!prev)
+  }
+  const [opencomment,setopencomment]=useState(false);
   return (
     <div className='flex flex-col h-screen w-full'>
       {/* header */}
@@ -9,6 +16,10 @@ const Documenteditor = (params) => {
       <Documentinfo params={params}/>
       <div className='flex-grow bg-white p-4'>
         {/* Other editor content goes here */}
+      </div>
+      <div className='fixed  right-5 bottom-20 mr-2 z-40'>
+        <Button onClick={changecomment}>{opencomment?<X/>:<MessageCircle/>}</Button>
+        {opencomment&&<Commentbox params={params}/>}
       </div>
     </div>
   )

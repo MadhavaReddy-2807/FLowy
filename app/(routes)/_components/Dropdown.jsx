@@ -37,9 +37,6 @@ const Dropdown = ({workspaceid,docid}) => {
     <DropdownMenu>
   <DropdownMenuTrigger className='ml-1'><MoreVertical/></DropdownMenuTrigger>
   <DropdownMenuContent className='absolute'>
-  
-    <DropdownMenuItem><Link2Icon/>Share</DropdownMenuItem>
-    <DropdownMenuItem><PenBox/>Rename</DropdownMenuItem>
     <DropdownMenuItem className='text-red-600' onClick={deletedoc}><Trash2/>Delete</DropdownMenuItem>
   </DropdownMenuContent>
 </DropdownMenu>

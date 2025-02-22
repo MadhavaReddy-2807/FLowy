@@ -17,11 +17,55 @@ const collection=db.collection('workspaces');//create a workspace
 app.get('/',async(req,res)=>{
     res.send('hello')
 })
+app.post('/getusers',async(req,res)=>{
+  const usersCollection = db.collection('usersdata');
+  const {userIds}=req.body;
+  if(userIds.length!=0)
+  {
+
+    const users = await usersCollection.find({ email: { $in: userIds } }).toArray();
+    res.json(users);
+  }
+
+})
 app.post('/workspaces',async(req,res)=>{
     const workspace=req.body;
+    // console.log(workspace);
     const insert=await collection.insertOne(workspace);
     res.send({succes:true});
+})
+app.delete('/workspace',async(req,res)=>{
+   const {workspaceid}=req.body;
+   const del=await collection.deleteOne({workspaceid:workspaceid});
+   res.send({succes:true})
+})
+app.get('/workspacelist',async(req,res)=>{
+    const {orgId,userId}=req.query;
+  let filter={};
+//   console.log(orgId,userId)
+  if(orgId)
+  {
+    filter={"orgId.orgId":orgId};
+  }
+  else if(userId)
+  {
+    filter={"orgId.orgId":null,"orgId.userId":userId}
+  }
+    // console.log('this is' ,orgId)
+    const data=await collection.find(filter).toArray();
+    res.json(data);
+})
+app.post('/userdata',async(req,res)=>{
+  const usersCollection = db.collection('usersdata');
+  const { name, avatar, email } = req.body;
+    const existingUser = await usersCollection.findOne({ email });
 
+  if (existingUser) {
+      
+  } else {
+      await usersCollection.insertOne({ name, avatar, email });
+      return res.status(201).json({ success: true, message: "User added" });
+  }  
 })
 app.get('/workspaces',async(req,res)=>{
     const  {workspaceid}=req.query;

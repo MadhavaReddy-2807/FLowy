@@ -5,11 +5,11 @@ export default function Page() {
   
   <section className="bg-white">
     <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
-      <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
+      <section className=" hidden relative md:block  h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
         <img
           alt=""
           src="https://images.unsplash.com/photo-1617195737496-bc30194e3a19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-          className="absolute inset-0 h-full w-full object-cover opacity-80"
+          className="absolute inset-0 h-full w-full object-cover ml-2 hidden md:block opacity-80"
         />
   
         <div className="hidden lg:relative lg:block lg:p-12">
@@ -28,11 +28,11 @@ export default function Page() {
             </svg>
           </a>
   
-          <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+          <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl flex justify-center ">
             Welcome to Flowly 
           </h2>
   
-          <p className="mt-4 leading-relaxed text-white/90">
+          <p className="mt-4 ml-2 leading-relaxed text-white/90 md:hidden ">
           Step into Flowly Log in to collaborate, create, and connect seamlessly."
 Feel free to adjust it if you need a different vibe!
           </p>
@@ -50,7 +50,7 @@ Feel free to adjust it if you need a different vibe!
             >
               <span className="sr-only">Home</span>
               <svg
-                className="h-8 sm:h-10"
+                className="h-8 sm:h-10 hidden md:flex"
                 viewBox="0 0 28 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -62,17 +62,17 @@ Feel free to adjust it if you need a different vibe!
               </svg>
             </a>
   
-            <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
+            <h1 className="mt-2  ml text-2xl font-bold text-gray-900 hidden md:flex sm:text-3xl md:text-4xl">
               Welcome to Flowly 
             </h1>
   
-            <p className="mt-4 leading-relaxed text-gray-500">
+            <p className="mt-4  hidden md:block leading-relaxed text-gray-500">
             Step into Flowly Log in to collaborate, create, and connect seamlessly."
 Feel free to adjust it if you need a different vibe!
             </p>
           </div>
   
-          <div className='ml-16 mt-5'><SignIn /></div> 
+          <div className=' md:ml-16 mt-5'><SignIn /></div> 
         </div>
       </main>
     </div>

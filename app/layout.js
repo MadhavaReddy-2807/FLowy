@@ -1,7 +1,9 @@
 import { Outfit } from "next/font/google";
 import "./globals.css";
+import "@liveblocks/react-ui/styles.css";
 import { ClerkProvider, ClerkLoaded, ClerkLoading } from '@clerk/nextjs'
 import { Toaster } from "@/components/ui/toaster"
+// import { NotificationsProvider } from "./NotificationProvider";
 const geistSans = Outfit({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -19,31 +21,30 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+   
     <ClerkProvider>
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ClerkLoading>
-  <div className="  my-[40%] mx-[30%] md:my-[20%] md:mx-[40%] ">
+  <div className=" mx-[30%] my-[40%] md:my-[20%] md:mx-[40%] ">
 <div className="card ">
   <div className="loader">
-    <p>Loading</p>
+    <p className="flex ">Loading <span className="md:hidden">...</span></p>
     <div className="words">
       <span className="word">Spaces</span>
       <span className="word">Work</span>
       <span className="word">Notes</span>
       <span className="word">Data</span>
-      
-      {/* <span className="word">buttons</span> */}
-    </div>
+          </div>
     
   </div>
   
 </div>
 
 </div>
-<span className="absolute bottom-2 flex justify-center text-slate-800 text-md p-2  font-semibold"> Step into Flowly Collaborate, create, and connect seamlessly."
+<span className=" hidden md:flex bottom-2  justify-center text-slate-800 text-md p-2  font-semibold"> Step into Flowly Collaborate, create, and connect seamlessly."
     Feel free to adjust it if you need a different vibe!"</span>
         </ClerkLoading>
         <ClerkLoaded>
@@ -53,5 +54,7 @@ export default function RootLayout({ children }) {
       </body>
     </html>
     </ClerkProvider>
+
   );
+  
 }

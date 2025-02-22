@@ -24,6 +24,7 @@ import Checklist from '@editorjs/checklist'
 // import Table from '@editorjs/table'
 // import CodeTool from '@editorjs/code'
 import Paragraph from '@editorjs/paragraph';
+import GenerateFromAI from './GenerateFromAI';
 const Texteditor = () => {
       const params = useParams();  
       const { docid, workspaceid } = params;
@@ -77,6 +78,10 @@ const updateworkspace=async()=>{
 
 }
   const intieditor = () => {
+    if(ref.current)
+    {
+      return;
+    }
     // console.log("heel")
     if (!ref.current || !(ref.current instanceof EditorJS)) {  // Check if the editor instance is not yet created
      
@@ -205,6 +210,14 @@ const updateworkspace=async()=>{
   return (
     <div className='w-full'>
       <div id='editorjs' className=' flex justify-start ml-6 w-full  relative bottom-[400px] p-10'></div>
+      <div  className='fixed bottom-20 md:ml-80 left-0 z-10'><GenerateFromAI setGeneratedOutput={(output) => {
+  if (ref.current) {
+    ref.current.render(output);
+  } else {
+    console.error("Editor instance not initialized.");
+  }
+}} />
+</div>
     </div>
   );
 };

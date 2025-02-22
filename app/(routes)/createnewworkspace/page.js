@@ -24,10 +24,11 @@ const CreateWorkspace = () => {
   const docid=uuidv4();
   const oncreateworkspace=async()=>{
     const arr=[{id:docid,name:""}];
+    console.log(orgId)
     setLoading(true)
     const workspace={
       workspacename:workspacename,
-      emoji:emoji,
+      emoji:emoji||"📁",
       coverimage:coverimage,
       createdby:user?.primaryEmailAddress?.emailAddress,
       workspaceid:id,
@@ -50,7 +51,7 @@ const godashboard=()=>{
   router.push('/dashboard');
 }
   return (
-    <div className="p-16 md:p-36 md:-mt-10 mx-9 px-10 flex justify-center justify-items-center ">
+    <div className="py-3 md:p-36  md:-mt-10 md:mx-9 md:px-10 flex justify-center justify-items-center ">
       <div className="relative hover:cursor-pointer border rounded-t-xl shadow-xl pb-10 w-[80%]">
         <Coverpicker className="w-full" setNewcover={(v) => setcoverimage(v)}>
           <div className="w-full group">

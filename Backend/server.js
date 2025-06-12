@@ -4,7 +4,11 @@ const port = 4000
 const bodyparser=require('body-parser')
 const {MongoClient}=require('mongodb');
 const app=express();
-app.use(cors())
+app.use(cors({
+  origin: "https://iflowly.netlify.app", // replace with your frontend origin
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 require('dotenv').config()
 app.use(bodyparser.json())
 console.log(process.env.MONGO)

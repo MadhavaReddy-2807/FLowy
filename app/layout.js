@@ -50,7 +50,6 @@ export default function RootLayout({ children }) {
             <Toaster />
             {children}
           </ClerkLoaded>
-         
         </body>
       </html>
     </ClerkProvider>

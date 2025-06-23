@@ -50,9 +50,7 @@ export default function RootLayout({ children }) {
             <Toaster />
             {children}
           </ClerkLoaded>
-
-          {/* Footer with GitHub link */}
-          
+         
         </body>
       </html>
     </ClerkProvider>

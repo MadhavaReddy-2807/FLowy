@@ -36,7 +36,7 @@ export default function Home() {
         </div>
       </div>
         <footer className="w-full text-center text-sm text-gray-600 fixed bottom-0 ">
-            Check the{" "}
+            Check the {" "}
             <a
               href="https://github.com/MadhavaReddy-2807/FLowy"  // <-- Replace with your actual repo URL
               target="_blank"

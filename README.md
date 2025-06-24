@@ -9,6 +9,7 @@ Flowy is a **modern collaborative workspace** built using:
 - **React & Next.js** for a fast, interactive, and scalable frontend experience.  
 - **Node.js** for a robust and efficient backend that ensures smooth data handling.  
 
+
 ## 🎯 Why Flowy?  
 
 With the increasing need for **remote work, team collaboration, and seamless project management**, Flowy brings together the best of technology to provide:  
